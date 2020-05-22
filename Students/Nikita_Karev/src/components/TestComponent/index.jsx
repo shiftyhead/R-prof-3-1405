@@ -2,21 +2,29 @@ import React from 'react';
 import ReactDom from 'react-dom';
 
 import './style.css';
-import Message from '../Message.jsx';
+import Message from '../Message/Message.jsx';
 
-function test(props) {
+let messages = ['Hello user!', 'How old are you?', 'I am 25 years old'];
 
-    let arr = ['Dart Vader', 'Chewbakka', 'Master Yoda'];
+const handleClick = () => {
+    messages.push('Ok');
+    ReactDom.render(
+        <div><MessageField messages={ messages }/></div>
+    ) 
+}
 
-    let msgArr = arr.map(name => {
-        return (<Message name={ name } />);
+let MessageField = props => {
+
+    let msgArr = props.messages.map(text => {
+        return (<Message text={ text } />);
     });
 
     return (
         <div>
-            { msgArr }
+            <div>{ msgArr }</div>
+            <button onClick={ handleClick }>Send</button>
         </div>
         );
 }
 
-export default test;
+export default MessageField;

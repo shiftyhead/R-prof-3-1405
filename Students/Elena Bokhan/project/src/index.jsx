@@ -1,60 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import 'bootstrap';
+import ReactDom from "react-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout/style/main.css'
-import MessagesList from './components/MessagesList.jsx'
-class Messages extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { items: [], text: '' };
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-	}
+import MessageField from './components/MessageField/MessageField.jsx'
 
-	render() {
-		return (
-			<div>
-				<h3>Сообщения</h3>
-				<MessagesList items={this.state.items} />
-				<form onSubmit={this.handleSubmit}>
-					<input						
-						onChange={this.handleChange}
-						value={this.state.text}
-					/>
-					<button>
-						Add message
-					</button>
-				</form>
-			</div>
-		);
-	}
+let container = document.getElementById('app');
+let user = 'Loontik';
 
-	handleChange(e) {
-		this.setState({ text: e.target.value });
-	}
-
-	handleSubmit(e) {
-		e.preventDefault();
-		if (this.state.text.length === 0) {
-			return;
-		}
-		const newItem = {
-			text: this.state.text,
-
-		};
-		this.setState(state => ({
-			items: state.items.concat(newItem),
-			text: ''
-		}));
-	}
-}
-
-
-
-
-
-
-ReactDOM.render(
-	<Messages />,
-	document.getElementById('app')
-);
+ReactDom.render(
+    <div className="d-flex w-80 justify-content-center">
+        <MessageField user={ user } />
+    </div>
+	,
+	container
+)

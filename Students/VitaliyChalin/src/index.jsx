@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './layout/style/main.css';
 
-import MessageField from './components/MessageField/index.jsx';
+import MessagesField from './components/MessageField/MessageField.jsx';
 
-let messages = ['Привет', 'Как дела?'];
+let container = document.getElementById('app');
+
+let user = 'Loontik';
+
+ReactDom.render(
+    <MessagesField user={ user } />,
+    container
+);
+
+/* let messages = ['Привет', 'Как дела?'];
 
 ReactDom.render(
     <MessageField messages={ messages } />,
@@ -28,4 +38,4 @@ btnSubmit.addEventListener('click', (e) => {
             document.getElementById('app'),
         );
     }
-});
+}); */

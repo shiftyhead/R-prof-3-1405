@@ -2,3 +2,8 @@ body {
     margin: 0;
     padding: 0;
 }
+#app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 50px 15px;
+}

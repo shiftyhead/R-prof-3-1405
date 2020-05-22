@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        app: './src/index.js',
+        app: './src/index.jsx',
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -17,7 +17,7 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 8080
+        port: 9000
       },
     module: {
         rules: [
@@ -28,7 +28,18 @@ module.exports = {
             use: {
               loader: 'babel-loader',
             }
-          }
+          },
+          {
+            test: /\.s[ac]ss$/i,
+            use: [
+              // Creates `style` nodes from JS strings
+              'style-loader',
+              // Translates CSS into CommonJS
+              'css-loader',
+              // Compiles Sass to CSS
+              'sass-loader',
+            ],
+          },
         ]
       }
  };

@@ -1,9 +1,11 @@
 import React from 'react'
 
 export default (props) => {
-  const {message} = props
-  return(
+  const {author, message} = props
+
+  return (
     <p>
+      <i>{author}: </i>
       {message}
     </p>
   )

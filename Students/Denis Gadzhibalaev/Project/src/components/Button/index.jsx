@@ -1,9 +1,9 @@
-import React from 'react'
-import './style.sass'
+import React from 'react';
+import ReactDom from 'react-dom';
+import './style.sass';
 
 export default function Button(props) {
-    let text = <p>Нормально</p>
     return (
-        <button onClick = {props.addText}>Enter</button>
+        <button className= "ml-3" onClick = {props.addInputText}>Send</button>
     )
 }
